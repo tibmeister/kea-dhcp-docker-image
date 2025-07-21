@@ -7,8 +7,10 @@ RUN apt-get update && \
     build-essential \
     cmake \
     pkg-config \
-    libmysqlclient-dev \
-    libboost-all-dev \
+    default-libmysqlclient-dev \
+    libboost-dev \
+    libboost-system-dev \
+    libboost-thread-dev \
     liblog4cplus-dev \
     libssl-dev \
     libtool \
@@ -18,6 +20,7 @@ RUN apt-get update && \
     git \
     ca-certificates && \
     rm -rf /var/lib/apt/lists/*
+
 
 WORKDIR /usr/src
 
