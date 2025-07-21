@@ -1,0 +1,23 @@
+# .dockerignore
+.git
+.github
+*.md
+*.log
+*.zip
+*.tar.gz
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+build/
+dist/
+*.swp
+*.bak
+debug/
+logs/
+node_modules/
+kea-config/dhcp4.leases
+kea-config/kea-dhcp4.csv
+kea-config/*.bak
+kea-config/*.swp
+kea-config/*.log
