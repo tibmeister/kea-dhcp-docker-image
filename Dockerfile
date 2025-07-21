@@ -1,7 +1,7 @@
 # Generic Dockerfile for building ISC Kea DHCP 2.4.1
 # Designed for use in CI/CD pipelines (e.g., GitHub Actions) with optional config injection
 
-FROM debian:bullseye as builder
+FROM debian:bookworm as builder
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,7 +10,7 @@ RUN apt-get update && \
     build-essential \
     cmake \
     pkg-config \
-    libmysqlclient-dev \
+    default-libmysqlclient-dev \
     libboost-all-dev \
     liblog4cplus-dev \
     libssl-dev \
@@ -35,7 +35,7 @@ RUN mkdir -p /usr/src/kea/build && cd /usr/src/kea/build && \
 
 
 # Final runtime image
-FROM debian:bullseye
+FROM debian:bookworm
 
 COPY --from=builder /usr/local /usr/local
 RUN mkdir -p /etc/kea /var/log/kea /usr/lib/kea/hooks
