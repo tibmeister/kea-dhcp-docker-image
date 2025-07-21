@@ -30,9 +30,11 @@ RUN git clone -b Kea-2.6.4 https://gitlab.isc.org/isc-projects/kea.git
 
 WORKDIR /usr/src/kea
 
-RUN ./configure --with-dhcp-mysql --prefix=/usr/local \
-    && make -j$(nproc) \
-    && make install
+RUN mkdir -p /usr/src/kea/build && cd /usr/src/kea/build && \
+    cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DWITH_MYSQL=YES && \
+    make -j$(nproc) && \
+    make install
+
 
 FROM debian:bullseye
 
