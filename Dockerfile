@@ -24,7 +24,9 @@ RUN apt-get update && \
 
 WORKDIR /usr/src
 
-RUN git clone -b v2.4.1 https://gitlab.isc.org/isc-projects/kea.git
+RUN git clone -b Kea-2.6.4 https://gitlab.isc.org/isc-projects/kea.git
+# RUN cd kea && \
+#     git submodule update --init --recursive
 
 WORKDIR /usr/src/kea
 
